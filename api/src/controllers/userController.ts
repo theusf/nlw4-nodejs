@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
-import { User } from "../models/user"
+import { getCustomRepository } from 'typeorm';
+import { UsersRepository } from '../repositories/UsersRepository';
 
 class UserController {
 
@@ -8,7 +8,7 @@ class UserController {
     async create(request: Request, response: Response) {
         const { name, email } = request.body;
 
-        const usersRepository = getRepository(User);
+        const usersRepository = getCustomRepository(UsersRepository);
         //É como se fosse um manager de dados, manipulação de dados.
 
         const userAlreadyExists = await usersRepository.findOne({ email })
@@ -22,7 +22,7 @@ class UserController {
 
         await usersRepository.save(user);
 
-        return response.json(user)
+        return response.status(201).json(user)
     }
 
 }

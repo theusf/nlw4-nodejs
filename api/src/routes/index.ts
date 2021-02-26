@@ -1,6 +1,12 @@
 import {Router} from 'express';
-import userController from '../controllers/userController';
+import surveysController from '../controllers/SurveysController';
+import userController from '../controllers/UserController';
 
-export const router = Router(); 
+const router = Router(); 
 
 router.post("/users", userController.create)
+router.post("/surveys", surveysController.create)
+
+router.get("/surveys", surveysController.show)
+
+export { router }
