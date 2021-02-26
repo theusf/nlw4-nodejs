@@ -1,23 +1,8 @@
-import express from 'express';
-import 'reflect-metadata';
-import "./database";
-import { router } from './routes';
 
-// Precisamos de um tradutor de import.
-// Instalando .. typescript
-// yarn add typescript -D
-// yarn tsc --init
+import { app } from "./app";
 
-// Converter yarn add ts-node-dev -D
-// Ele em tempo de execução converte o código para JS
+app.listen(7777, () => console.log('Server is running! 👩‍🚀') )
 
-
-//Metodos HTTP
-
-const app = express();
-
-app.use(express.json())
-app.use(router)
 
 /* app.get("/", (req, res) => {
     return res.json({message: "#NLW04"})
@@ -28,5 +13,3 @@ app.post("/", (req, res) => {
     return res.json({message: "Os dados foram salvos com sucesso"})
 })
  */
-
-app.listen(7777, () => console.log('Server is running! 👩‍🚀') )

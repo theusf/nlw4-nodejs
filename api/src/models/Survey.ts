@@ -1,16 +1,16 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from 'uuid';
 
-@Entity("users") //Definindo que essa classe é uma entidade de user
-class User {
+@Entity("surveys")
+class Survey {
     @PrimaryColumn()
     readonly id: string;
 
     @Column()
-    name: string;
+    title: string;
 
     @Column()
-    email: string;
+    description: string;
 
     @CreateDateColumn() //Adiciona uma data.
     created_at: Date;
@@ -22,4 +22,4 @@ class User {
     }
 }
 
-export { User } //Ajuda no auto import do vscode
+export { Survey }
